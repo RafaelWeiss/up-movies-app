@@ -1,0 +1,21 @@
+{
+  "label": {
+    "genres": "Genres",
+    "votes":"votes",
+    "info":"Info",
+    "status" : "Status",
+    "language" : "Language",
+    "runtime" : "Runtime",
+    "release" : "Release",
+    "minutes" : "min",
+    "en" : "English",
+    "pt" : "Portuguese"
+
+  },
+  "button": {
+  },
+  "msg": {
+  },
+  "placeholder": {
+  }
+}
