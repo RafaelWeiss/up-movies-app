@@ -7,10 +7,10 @@ function* getUpcomingMoviesListSaga({ payload }) {
     yield* sagaBuilder(
         movieService.getUpcomingMoviesList,
         payload,
-        function* success(data) {
+        function*(data) {
             yield put(actions.getUpcomingMoviesList.success(data));
         },
-        function* error(err) {
+        function*(err) {
             yield put(actions.getUpcomingMoviesList.error(err));
         },
         { multipleSuccessActions: true, loading: payload.page === 1 }
@@ -21,10 +21,10 @@ function* getMovieDetailsSaga({ payload }) {
     yield* sagaBuilder(
         movieService.getMovieDetails,
         payload,
-        function* success(data) {
+        function*(data) {
             yield put(actions.getMovieDetails.success(data));
         },
-        function* error(err) {
+        function*(err) {
             yield put(actions.getMovieDetails.error(err));
         },
         { multipleSuccessActions: true, loading: true }

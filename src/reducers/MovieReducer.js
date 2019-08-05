@@ -21,22 +21,29 @@ const initialState = {
     upcomingMoviesListCurrentPage: 1,
     upcomingMoviesListLastPage: null,
     upcomingMoviesList: [],
+    upcomingMoviesListLoading: false,
     movieDetails: {}
 };
 
 export default handleActions(
     {
         [types.GET_UPCOMING_MOVIES_LIST.REQUEST]: (state) => ({
-            ...state
+            ...state,
+            upcomingMoviesListLoading: true
         }),
         [types.GET_UPCOMING_MOVIES_LIST.SUCCESS]: (state, { payload }) => {
             return {
                 ...state,
                 upcomingMoviesListCurrentPage: payload.page,
                 upcomingMoviesListLastPage: payload.total_pages,
+                upcomingMoviesListLoading: false,
                 upcomingMoviesList: [...state.upcomingMoviesList, ...payload.results]
             };
         },
+        [types.GET_UPCOMING_MOVIES_LIST.ERROR]: (state) => ({
+            ...state,
+            upcomingMoviesListLoading: false
+        }),
         [types.GET_MOVIE_DETAILS.REQUEST]: (state) => ({
             ...state,
             movieDetails: {}
@@ -60,6 +67,10 @@ export const selectors = {
     getUpcomingMoviesLastPage: (state) => {
         return state[stateKey].upcomingMoviesListLastPage;
     },
+    getUpcomingMoviesListLoading: (state) => {
+        return state[stateKey].upcomingMoviesListLoading;
+    },
+
     getMovieDetails: (state) => {
         return state[stateKey].movieDetails;
     }

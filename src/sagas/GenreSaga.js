@@ -7,10 +7,10 @@ function* getGenresSaga({ payload }) {
     yield* sagaBuilder(
         genreService.getGenres,
         payload,
-        function* success(data) {
+        function*(data) {
             yield put(actions.getGenres.success(data));
         },
-        function* error(err) {
+        function*(err) {
             yield put(actions.getGenres.error(err));
         },
         { multipleSuccessActions: true, loading: false }

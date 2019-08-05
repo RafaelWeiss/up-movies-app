@@ -1,14 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Image } from 'react-native';
+import Picache from 'picache';
 import { selectors as configurationSelector } from '../reducers/ConfigurationReducer';
 
-class ImageContainer extends Component {
-    shouldComponentUpdate(newProps) {
-        return this.props.path !== newProps.path;
-    }
-
+class ImageContainer extends PureComponent {
     getUri = () => {
         return `${this.props.configuration.images.secure_base_url}w${this.props.width}${this.props.path}`;
     };
@@ -16,12 +12,11 @@ class ImageContainer extends Component {
     render() {
         const uri = this.getUri();
         return (
-            <Image
+            <Picache
                 ref={(ref) => {
                     this.imageRef = ref;
                 }}
                 style={this.props.style}
-                onLoad={this.handleOnLoad}
                 source={{ uri }}
             />
         );

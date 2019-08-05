@@ -29,7 +29,6 @@ expo start
 ```
 
 When you see the QR code, either _Scan QR Code_ from the expo app or run on either an Android or IOS simulator.
-\*\* Note: This project was tested both on a Android Simulator and Android Physical Device
 
 ## Versions
 

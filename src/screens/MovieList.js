@@ -15,10 +15,6 @@ import AppContainer from '../components/AppContainer';
 import MovieListItem from './MovieListItem';
 
 class MovieList extends Component {
-    state = {
-        loadingPagination: false
-    };
-
     componentDidMount() {
         if (_.isNil(this.props.configuration)) {
             this.props.getConfiguration();
@@ -31,23 +27,11 @@ class MovieList extends Component {
 
     shouldComponentUpdate(newProps) {
         const isNewMoviesLoaded = this.props.movies && this.props.movies.length !== newProps.movies.length;
-        return isNewMoviesLoaded;
-    }
-
-    componentWillUpdate() {
-        console.log('MovieList WillUpdate');
-    }
-
-    componentDidUpdate() {
-        console.log('MovieList Update');
-    }
-
-    componentWillUnmount() {
-        console.log('MovieList Unmount');
+        const isLoading = newProps.loadingPagination && !this.props.loadingPagination;
+        return isLoading || isNewMoviesLoaded;
     }
 
     handleClick = (movie) => {
-        console.log('MovieList click');
         this.props.navigation.navigate('MovieDetail', {
             movieId: movie.id,
             handleKeepScroll: this.handleKeepScroll
@@ -55,7 +39,6 @@ class MovieList extends Component {
     };
 
     handleScroll = (event) => {
-        console.log('Kepp');
         this.props.setScrollPosition(event.nativeEvent.contentOffset.y);
     };
 
@@ -65,22 +48,18 @@ class MovieList extends Component {
 
     handleKeepScroll = () => {
         const offset = this.props.scrollPosition;
-        console.log('setScroll');
         this.flatList.scrollToOffset({ offset, animated: false });
     };
 
     handleLoadMore = () => {
         const nextPage = parseInt(this.props.currentPage, 10) + parseInt(1, 10);
-        this.setState({ loadingPagination: true });
-        if (nextPage <= this.props.lastPage && !this.state.loadingPagination) {
-            this.setState({ loadingPagination: true });
+        if (nextPage <= this.props.lastPage && !this.props.loadingPagination) {
             this.props.getUpcomingMoviesList({ page: nextPage });
-            console.log('MovieList Load More');
         }
     };
 
     renderLoadingPagination = () => {
-        if (!this.state.loadingPagination) return null;
+        if (!this.props.loadingPagination) return null;
         return (
             <View style={styles.loadingPagination}>
                 <ActivityIndicator color={primaryColor} />
@@ -90,7 +69,6 @@ class MovieList extends Component {
 
     render() {
         const { movies } = this.props;
-        console.log('Movie List Render');
         return (
             <AppContainer>
                 {movies && (
@@ -108,7 +86,7 @@ class MovieList extends Component {
                         keyExtractor={(item, index) => `${index} - ${item}`}
                         onEndReached={() => this.handleLoadMore()}
                         ItemSeparatorComponent={this.renderSeparator}
-                        onEndReachedThreshold={0.5}
+                        onEndReachedThreshold={0.6}
                         initialNumToRender={10}
                         maxToRenderPerBatch={8}
                         ListFooterComponent={this.renderLoadingPagination}
@@ -124,7 +102,8 @@ MovieList.defaultProps = {
     navigation: {},
     configuration: null,
     scrollPosition: 0,
-    lastPage: -1
+    lastPage: -1,
+    loadingPagination: false
 };
 
 MovieList.propTypes = {
@@ -132,6 +111,7 @@ MovieList.propTypes = {
     configuration: PropTypes.object,
     scrollPosition: PropTypes.number,
     lastPage: PropTypes.number,
+    loadingPagination: PropTypes.bool,
     currentPage: PropTypes.number.isRequired,
     getUpcomingMoviesList: PropTypes.func.isRequired,
     getConfiguration: PropTypes.func.isRequired,
@@ -145,6 +125,7 @@ const mapStateToProps = (state) => ({
     movies: movieSelector.getUpcomingMoviesList(state),
     currentPage: movieSelector.getUpcomingMoviesCurrentPage(state),
     lastPage: movieSelector.getUpcomingMoviesLastPage(state),
+    loadingPagination: movieSelector.getUpcomingMoviesListLoading(state),
     configuration: configurationSelector.getConfiguration(state),
     scrollPosition: systemSelector.getSystemScrollPosition(state)
 });

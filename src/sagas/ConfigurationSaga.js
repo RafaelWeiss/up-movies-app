@@ -7,10 +7,10 @@ function* getConfigurationSaga({ payload }) {
     yield* sagaBuilder(
         configurationService.getConfiguration,
         payload,
-        function* success(data) {
+        function*(data) {
             yield put(actions.getConfiguration.success(data));
         },
-        function* error(err) {
+        function*(err) {
             yield put(actions.getConfiguration.error(err));
         },
         { multipleSuccessActions: true, loading: false }
