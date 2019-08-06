@@ -47,12 +47,13 @@
     "prettier": "^1.17.1",
     "react-dom": "^16.8.6",
     "react-test-renderer": "^16.8.6",
-    "reactotron-react-native": "^3.6.4"
+    "reactotron-react-native": "^3.6.4",
+    "redux-mock-store": "^1.5.3"
   },
   "jest": {
     "preset": "jest-expo",
     "transformIgnorePatterns": [
-      "node_modules/(?!((jest-)?react-native|react-clone-referenced-element|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|sentry-expo|native-base))"
+      "node_modules/(?!((jest-)?react-native|react-clone-referenced-element|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|sentry-expo|native-base|picache))"
     ],
     "transform": {
       "\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"

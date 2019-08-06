@@ -1,0 +1,290 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Component <MovieListItem/ > should render correctly MovieListItem 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MovieListItem
+    index={1}
+    item={
+      Object {
+        "adult": false,
+        "backdrop_path": "/hpgda6P9GutvdkDX5MUJ92QG9aj.jpg",
+        "genre_ids": Array [
+          28,
+        ],
+        "id": 384018,
+        "original_language": "en",
+        "original_title": "Fast & Furious Presents: Hobbs & Shaw",
+        "overview": "A spinoff of The Fate of the Furious, focusing on Johnson's US Diplomatic Security Agent Luke Hobbs forming an unlikely alliance with Statham's Deckard Shaw.",
+        "popularity": 452.935,
+        "poster_path": "/keym7MPn1icW1wWfzMnW3HeuzWU.jpg",
+        "release_date": "2019-08-01",
+        "title": "Fast & Furious Presents: Hobbs & Shaw",
+        "video": false,
+        "vote_average": 6.7,
+        "vote_count": 195,
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": "1",
+    "nodeType": "class",
+    "props": Object {
+      "activeOpacity": 0.2,
+      "children": <Themed.ListItem
+        containerStyle={
+          Object {
+            "backgroundColor": "transparent",
+          }
+        }
+        leftIcon={
+          <Connect(ImageContainer)
+            path="/keym7MPn1icW1wWfzMnW3HeuzWU.jpg"
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ddd",
+                "borderRadius": 5,
+                "flex": 0,
+                "height": 120,
+                "justifyContent": "center",
+                "margin": 0,
+                "width": 80,
+              }
+            }
+          />
+        }
+        rightIcon={
+          <Component
+            style={
+              Object {
+                "color": "#2db661",
+                "flex": 1,
+                "fontFamily": "bold",
+                "fontSize": 20,
+                "textAlign": "right",
+              }
+            }
+          >
+            6.7
+          </Component>
+        }
+        subtitle="Aug, 2019"
+        subtitleStyle={
+          Object {
+            "color": "rgba(126,123,138,1)",
+          }
+        }
+        title="Fast & Furious Presents: Hobbs & Shaw"
+        titleStyle={
+          Object {
+            "color": "#fff",
+          }
+        }
+      />,
+      "onPress": undefined,
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "containerStyle": Object {
+          "backgroundColor": "transparent",
+        },
+        "leftIcon": <Connect(ImageContainer)
+          path="/keym7MPn1icW1wWfzMnW3HeuzWU.jpg"
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ddd",
+              "borderRadius": 5,
+              "flex": 0,
+              "height": 120,
+              "justifyContent": "center",
+              "margin": 0,
+              "width": 80,
+            }
+          }
+        />,
+        "rightIcon": <Component
+          style={
+            Object {
+              "color": "#2db661",
+              "flex": 1,
+              "fontFamily": "bold",
+              "fontSize": 20,
+              "textAlign": "right",
+            }
+          }
+        >
+          6.7
+        </Component>,
+        "subtitle": "Aug, 2019",
+        "subtitleStyle": Object {
+          "color": "rgba(126,123,138,1)",
+        },
+        "title": "Fast & Furious Presents: Hobbs & Shaw",
+        "titleStyle": Object {
+          "color": "#fff",
+        },
+      },
+      "ref": null,
+      "rendered": null,
+      "type": [Function],
+    },
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": "1",
+      "nodeType": "class",
+      "props": Object {
+        "activeOpacity": 0.2,
+        "children": <Themed.ListItem
+          containerStyle={
+            Object {
+              "backgroundColor": "transparent",
+            }
+          }
+          leftIcon={
+            <Connect(ImageContainer)
+              path="/keym7MPn1icW1wWfzMnW3HeuzWU.jpg"
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#ddd",
+                  "borderRadius": 5,
+                  "flex": 0,
+                  "height": 120,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "width": 80,
+                }
+              }
+            />
+          }
+          rightIcon={
+            <Component
+              style={
+                Object {
+                  "color": "#2db661",
+                  "flex": 1,
+                  "fontFamily": "bold",
+                  "fontSize": 20,
+                  "textAlign": "right",
+                }
+              }
+            >
+              6.7
+            </Component>
+          }
+          subtitle="Aug, 2019"
+          subtitleStyle={
+            Object {
+              "color": "rgba(126,123,138,1)",
+            }
+          }
+          title="Fast & Furious Presents: Hobbs & Shaw"
+          titleStyle={
+            Object {
+              "color": "#fff",
+            }
+          }
+        />,
+        "onPress": undefined,
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "containerStyle": Object {
+            "backgroundColor": "transparent",
+          },
+          "leftIcon": <Connect(ImageContainer)
+            path="/keym7MPn1icW1wWfzMnW3HeuzWU.jpg"
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#ddd",
+                "borderRadius": 5,
+                "flex": 0,
+                "height": 120,
+                "justifyContent": "center",
+                "margin": 0,
+                "width": 80,
+              }
+            }
+          />,
+          "rightIcon": <Component
+            style={
+              Object {
+                "color": "#2db661",
+                "flex": 1,
+                "fontFamily": "bold",
+                "fontSize": 20,
+                "textAlign": "right",
+              }
+            }
+          >
+            6.7
+          </Component>,
+          "subtitle": "Aug, 2019",
+          "subtitleStyle": Object {
+            "color": "rgba(126,123,138,1)",
+          },
+          "title": "Fast & Furious Presents: Hobbs & Shaw",
+          "titleStyle": Object {
+            "color": "#fff",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromError": false,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": false,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    Symbol(enzyme.__providerValues__): undefined,
+  },
+  Symbol(enzyme.__providerValues__): Map {},
+  Symbol(enzyme.__childContext__): null,
+}
+`;

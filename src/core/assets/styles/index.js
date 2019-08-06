@@ -43,7 +43,9 @@ module.exports = StyleSheet.create({
         backgroundColor: '#ddd',
         margin: 0,
         width: 80,
-        flex: 0
+        flex: 0,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     listSeparator: {
         height: 1,
@@ -102,7 +104,8 @@ module.exports = StyleSheet.create({
     itemDetailsImage: {
         width: IMAGE_WIDTH,
         height: IMAGE_WIDTH + (IMAGE_WIDTH * 50) / 100,
-        borderRadius: 10
+        borderRadius: 10,
+        backgroundColor: '#ddd'
     },
     itemDetailsBadge: {
         borderWidth: 1,

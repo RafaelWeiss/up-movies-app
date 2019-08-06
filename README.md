@@ -1,6 +1,25 @@
-## UpMovies
+## UpMoviesApp
 
-A app created by using React Native, React Native Elements, Expo, Redux, React Navigation, Axios, Redux-Saga, Jest, Enzyme.
+A simple client App for the The Movie Database API v3.
+
+## APIs
+
+- [TMDb](https://developers.themoviedb.org/3/getting-started/introduction)
+
+About the TMDb API documentation and everything else you can se here: https://developers.themoviedb.org/3.
+
+## APP
+
+A app created by using: 
+- React Native
+- Expo
+- React Navigation v3
+- React Native Elements
+- Redux
+- Redux-Saga
+- Axios
+- Jest
+- Enzyme
 
 ## Installing
 
@@ -28,7 +47,11 @@ And start the application using Expo
 expo start
 ```
 
-When you see the QR code, either _Scan QR Code_ from the expo app or run on either an Android or IOS simulator.
+Run tests
+
+```
+npm test
+```
 
 ## Versions
 
