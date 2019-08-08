@@ -1,31 +1,29 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import _ from 'lodash';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import moment from 'moment';
-import { Text, View, ScrollView } from 'react-native';
+import { Text, View, ScrollView, ActivityIndicator } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import Modal from 'react-native-modalbox';
 import i18n from '../core/i18n';
-
-import { selectors as movieSelector, actions as movieAction } from '../reducers/MovieReducer';
-import { selectors as configurationSelector } from '../reducers/ConfigurationReducer';
-
 import styles from '../core/assets/styles';
-import AppContainer from '../components/AppContainer';
+import { primaryColor } from '../core/assets/styles/colors';
 import ImageContainer from '../components/ImageContainer';
 import AppConfig from '../config';
+import { selectors as movieSelector, actions as movieAction } from '../reducers/MovieReducer';
 
-class MovieDetail extends Component {
-    componentDidMount() {
-        this.props.getMovieDetails(this.getMovieId());
-    }
+class MovieDetailModal extends Component {
+    showModal = (movie) => {
+        this.props.getMovieDetails(movie.id);
+        this.movieDetailModal.open();
+    };
 
-    componentWillUnmount() {
-        this.props.navigation.state.params.handleKeepScroll();
-    }
-
-    getMovieId() {
-        return this.props.navigation.state.params.movieId;
-    }
+    closeModal = () => {
+        this.movieDetailModal.close();
+        this.props.parentFlatList.handleKeepScroll();
+    };
 
     renderFieldValue = (value, valueFmt) => {
         return value ? valueFmt : '-';
@@ -99,15 +97,34 @@ class MovieDetail extends Component {
         );
     }
 
+    renderButtonClose() {
+        return (
+            <Ionicons
+                name="md-close"
+                onPress={() => this.closeModal()}
+                size={32}
+                color={primaryColor}
+                style={styles.modalButtonClose}
+                title="X"
+            />
+        );
+    }
+
     render() {
         const { movie } = this.props;
         return (
-            <AppContainer>
+            <Modal
+                ref={(movieDetailModal) => {
+                    this.movieDetailModal = movieDetailModal;
+                }}
+                style={styles.modalContent}
+                position="center">
                 <>
-                    {movie && (
-                        <View style={styles.flex1}>
+                    {!_.isEmpty(movie) ? (
+                        <View style={styles.container}>
                             <View style={styles.itemDetailsNavBar}>
                                 <Text style={styles.itemDetailsHeader}>{movie.title}</Text>
+                                {this.renderButtonClose()}
                             </View>
                             <ScrollView style={styles.flex1}>
                                 <View style={styles.itemDetailsImageSection}>
@@ -126,30 +143,25 @@ class MovieDetail extends Component {
                                 {this.renderFields(movie)}
                             </ScrollView>
                         </View>
+                    ) : (
+                        <View style={styles.loading}>
+                            <ActivityIndicator animating size="large" color={primaryColor} />
+                        </View>
                     )}
                 </>
-            </AppContainer>
+            </Modal>
         );
     }
 }
-MovieDetail.defaultProps = {
-    movie: null,
-    navigation: {}
-};
 
-MovieDetail.propTypes = {
-    getMovieDetails: PropTypes.func.isRequired,
-    movie: PropTypes.object,
-    navigation: PropTypes.shape({
-        navigate: PropTypes.func,
-        state: PropTypes.object,
-        goBack: PropTypes.func
-    })
+MovieDetailModal.propTypes = {
+    getMovieDetails: PropTypes.any.isRequired,
+    movie: PropTypes.any.isRequired,
+    parentFlatList: PropTypes.any.isRequired
 };
 
 const mapStateToProps = (state) => ({
-    movie: movieSelector.getMovieDetails(state),
-    configuration: configurationSelector.getConfiguration(state)
+    movie: movieSelector.getMovieDetails(state)
 });
 
 const mapDispatchToProps = {
@@ -159,6 +171,8 @@ const mapDispatchToProps = {
 export default compose(
     connect(
         mapStateToProps,
-        mapDispatchToProps
+        mapDispatchToProps,
+        null,
+        { forwardRef: true }
     )
-)(MovieDetail);
+)(MovieDetailModal);

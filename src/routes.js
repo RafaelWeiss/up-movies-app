@@ -1,9 +1,8 @@
 import { createStackNavigator, createAppContainer } from 'react-navigation';
-import MovieDetail from './screens/MovieDetail';
-import MovieList from './screens/MovieList';
 import styles from './core/assets/styles';
 import { primaryColor } from './core/assets/styles/colors';
 import AppConfig from './config';
+import MovieList from './screens/MovieList';
 
 const headerNavigator = {
     title: AppConfig.appName,
@@ -17,10 +16,6 @@ const MainNavigator = createStackNavigator(
     {
         MovieList: {
             screen: MovieList,
-            navigationOptions: () => headerNavigator
-        },
-        MovieDetail: {
-            screen: MovieDetail,
             navigationOptions: () => headerNavigator
         }
     },

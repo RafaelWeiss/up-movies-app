@@ -2,6 +2,7 @@ import { StyleSheet, Dimensions } from 'react-native';
 import { backgroundColor, whiteColor, primaryColor, greyColor } from './colors';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
+const SCREEN_HEIGHT = Dimensions.get('window').height;
 const IMAGE_WIDTH = SCREEN_WIDTH - 80;
 
 module.exports = StyleSheet.create({
@@ -168,7 +169,8 @@ module.exports = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         marginTop: 20,
-        marginHorizontal: 30
+        marginHorizontal: 30,
+        marginBottom: 100
     },
 
     itemDetailsFieldsLeft: {
@@ -198,5 +200,20 @@ module.exports = StyleSheet.create({
         flexDirection: 'column',
         marginLeft: 40,
         marginRight: 10
+    },
+
+    modalContent: {
+        justifyContent: 'center',
+        borderRadius: 0,
+        shadowRadius: 10,
+        width: SCREEN_WIDTH,
+        height: SCREEN_HEIGHT
+    },
+
+    modalButtonClose: {
+        padding: 10,
+        position: 'absolute',
+        top: 0,
+        right: 0
     }
 });

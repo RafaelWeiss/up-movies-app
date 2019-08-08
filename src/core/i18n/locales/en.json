@@ -9,8 +9,9 @@
     "release" : "Release",
     "minutes" : "min",
     "en" : "English",
-    "pt" : "Portuguese"
-
+    "pt" : "Portuguese",
+    "fr" : "French",
+    "ko": "Korean"
   },
   "button": {
   },

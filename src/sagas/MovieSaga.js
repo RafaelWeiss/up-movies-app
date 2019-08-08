@@ -27,7 +27,7 @@ function* getMovieDetailsSaga({ payload }) {
         function*(err) {
             yield put(actions.getMovieDetails.error(err));
         },
-        { multipleSuccessActions: true, loading: true }
+        { multipleSuccessActions: true, loading: false }
     );
 }
 
