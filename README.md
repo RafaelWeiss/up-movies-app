@@ -1,4 +1,5 @@
 ## UpMoviesApp
+[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
 A simple client App for the The Movie Database API v3.
 
