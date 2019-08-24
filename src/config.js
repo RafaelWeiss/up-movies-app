@@ -1,7 +1,7 @@
 const AppConfig = {
     appName: 'UpMovies',
     apiUrl: 'https://api.themoviedb.org/3',
-    apiKey: '6b522793446f8e837fae2fd42b96b9ba',
+    apiKey: 'YOUR_APP_KEY',
     localeDefault: 'en',
     dateFormatDefault: 'MMM, YYYY'
 };
