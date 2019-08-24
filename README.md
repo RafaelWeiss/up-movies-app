@@ -67,7 +67,7 @@ npm test
 
 ## Versions
 
-v1.0
+v1.1
 
 -   Default project implementation
 
