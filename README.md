@@ -22,6 +22,20 @@ A app created by using:
 - Jest
 - Enzyme
 
+## API Key
+
+You will need an API key to The Movie Database to access the API.  To obtain a key, follow these steps:
+
+1) Register for and verify an account_.
+2) `Log into`_ your account.
+3) Select the API section on left side of your account page.
+4) Click on the link to generate a new API key and follow the instructions.
+
+.. _account: https://www.themoviedb.org/account/signup
+.. _Log into: https://www.themoviedb.org/login
+
+After obtaining the token, insert it into the **config.js** file.
+
 ## Installing
 
 Clone the repo
