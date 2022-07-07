@@ -16,7 +16,7 @@
     "expo": "^32.0.0",
     "i18n-js": "^3.2.2",
     "lodash-clean": "^2.0.1",
-    "moment": "2.22.2",
+    "moment": "2.29.4",
     "picache": "^1.0.13",
     "prop-types": "^15.7.2",
     "react": "16.5.0",
